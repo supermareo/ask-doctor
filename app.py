@@ -38,7 +38,8 @@ def list():
     question = request.form['question']
     questions = sentence_search(question)
     total = get_total_questions()
-    return render_template('list.html', questions=questions, total=total)
+    result_size = len(questions)
+    return render_template('list.html', questions=questions, total=total, result_size=result_size)
 
 
 def start_flask():
@@ -47,8 +48,3 @@ def start_flask():
 
 if __name__ == '__main__':
     start_flask()
-    # # 开启一个线程去爬数据
-    # t = threading.Thread(target=start_crawler, args=())
-    # t.setDaemon(True)  # 设置为后台线程，这里默认是False，设置为True之后则主线程不用等待子线程
-    # t.start()  # 开启线程
-    # threading.Thread(target=start_flask).start()

@@ -120,13 +120,12 @@ def sentence_search(sentence):
     question_and_departments = sql_op.raw_query(sql)
     # 根据相似度排序
     question_and_departments = sorted(question_and_departments,
-                                      key=lambda qad: sentences_similarity(sentence, qad['question']))
+                                      key=lambda qad: sentences_similarity(sentence, qad['question']),reverse=True)
     question_and_departments = list(map(lambda q: {
         'qid': str(q['id']),
         'question': q['question'],
         'department': q['name']
     }, question_and_departments))
-    print(question_and_departments)
     return question_and_departments
 
 
