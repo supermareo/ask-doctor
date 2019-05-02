@@ -28,13 +28,40 @@
     <link rel='stylesheet' id='custom-css-css' href='../static/css/custom5152.html?ver=1.0' type='text/css'
           media='all'/>
 
-    <link rel="import" href="head.html" id="page1"/>
-    <script type="text/javascript">
-        document.write(page1.import.body.innerHTML);
-    </script>
+    {#    <link rel="import" href="head.html" id="page1"/>#}
+    {#    <script type="text/javascript">#}
+    {#        document.write(page1.import.body.innerHTML);#}
+    {#    </script>#}
 </head>
 
 <body>
+
+<!-- Start of Header -->
+<div class="header-wrapper">
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <!-- Website Logo -->
+                <a href="../index" title="Ask Doctor">
+                    <img src="../static/images/logo.png" class="logo-heading" alt="Ask Doctor">
+                </a>
+            </div>
+        </div>
+    </header>
+</div>
+<!-- End of Header -->
+<!-- Start of Search Wrapper -->
+<div class="search-area-wrapper">
+    <div class="search-area container">
+        <h3 class="search-header">身体不适？就来问医生！</h3>
+        <p class="search-tag-line">已收录{{ total }}条问答</p>
+        <form class="search-form clearfix" action="../ask" method="post" autocomplete="off">
+            <input class="search-term required" type="text" name="question" placeholder="输入你的问题"/>
+            <input class="search-btn" type="submit" value="问医生"/>
+        </form>
+    </div>
+</div>
+<!-- End of Search Wrapper -->
 
 <!-- Start of Page Container -->
 <div class="page-container">
@@ -45,20 +72,19 @@
 
                 <article class=" type-post format-standard hentry clearfix">
 
-                    <h1 class="post-title"><a href="#">我的邻居胃痛7年了,主要胃脘胀痛,两肋胀痛...</a></h1>
+                    <h1 class="post-title"><a href="#">{{ qa.title }}</a></h1>
 
                     <div class="post-meta clearfix">
-                        <span class="category">内科</span>
+                        <span class="category">{{ qa.department }}</span>
                     </div><!-- end of post meta -->
 
                     <h4>问：</h4>
 
-                    <p>我的邻居胃痛7年了,主要胃脘胀痛,两肋胀痛,胸闷气短,肚子里老是有气,嗳气,请问胃脘胁肋胀痛怎么治疗比较好呢？</p>
+                    <p>{{ qa.question }}</p>
 
                     <h4>答：</h4>
 
-                    <p>
-                        你好，有胃痛情况下，那么有可能是引起的胃炎或者是胃溃疡的情况，可以先到医院做一个胃镜的检查，平时可以使用一些奥美拉唑，吗丁啉，丽珠得乐联合治疗的。注意三餐规律，不要暴饮暴食，避免辛辣刺激油腻生冷的食物以及不易消化的食物</p>
+                    <p>{{ qa.answer }}</p>
 
                 </article>
 

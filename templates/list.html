@@ -27,15 +27,35 @@
     <link rel='stylesheet' id='main-css-css' href='../static/css/main5152.css?ver=1.0' type='text/css' media='all'/>
     <link rel='stylesheet' id='custom-css-css' href='../static/css/custom5152.html?ver=1.0' type='text/css'
           media='all'/>
-
-    <link rel="import" href="head.html" id="page1"/>
-    <script type="text/javascript">
-        document.write(page1.import.body.innerHTML);
-    </script>
 </head>
 
 <body>
-
+<!-- Start of Header -->
+<div class="header-wrapper">
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <!-- Website Logo -->
+                <a href="../index" title="Ask Doctor">
+                    <img src="../static/images/logo.png" class="logo-heading" alt="Ask Doctor">
+                </a>
+            </div>
+        </div>
+    </header>
+</div>
+<!-- End of Header -->
+<!-- Start of Search Wrapper -->
+<div class="search-area-wrapper">
+    <div class="search-area container">
+        <h3 class="search-header">身体不适？就来问医生！</h3>
+        <p class="search-tag-line">已收录{{ total }}条问答</p>
+        <form class="search-form clearfix" action="../ask" method="post" autocomplete="off">
+            <input class="search-term required" type="text" name="question" placeholder="输入你的问题"/>
+            <input class="search-btn" type="submit" value="问医生"/>
+        </form>
+    </div>
+</div>
+<!-- End of Search Wrapper -->
 
 <!-- Start of Page Container -->
 <div class="page-container">
@@ -49,26 +69,13 @@
                 <div class="row separator">
                     <section class="span12 articles-list">
                         <ul class="articles">
-                            <li class="article-entry standard">
-                                <h4><a href="detail.html">我的邻居胃痛7年了,主要胃脘胀痛,两肋胀痛,胸闷气短,肚子里老是有气,嗳气,请问胃脘胁肋胀痛怎么治疗比较好呢？</a>
-                                </h4>
-                                <span class="like-count">66</span>
-                            </li>
-                            <li class="article-entry standard">
-                                <h4><a href="detail.html">我的邻居胃痛7年了,主要胃脘胀痛,两肋胀痛,胸闷气短,肚子里老是有气,嗳气,请问胃脘胁肋胀痛怎么治疗比较好呢？</a>
-                                </h4>
-                                <span class="like-count">66</span>
-                            </li>
-                            <li class="article-entry standard">
-                                <h4><a href="detail.html">我的邻居胃痛7年了,主要胃脘胀痛,两肋胀痛,胸闷气短,肚子里老是有气,嗳气,请问胃脘胁肋胀痛怎么治疗比较好呢？</a>
-                                </h4>
-                                <span class="like-count">66</span>
-                            </li>
-                            <li class="article-entry standard">
-                                <h4><a href="detail.html">我的邻居胃痛7年了,主要胃脘胀痛,两肋胀痛,胸闷气短,肚子里老是有气,嗳气,请问胃脘胁肋胀痛怎么治疗比较好呢？</a>
-                                </h4>
-                                <span class="like-count">66</span>
-                            </li>
+                            {% for item in questions %}
+                                <li class="article-entry standard">
+                                    <h4>
+                                        <a href="{{ '../detail/'+item.qid }}">{{ item.question }}</a>
+                                    </h4>
+                                </li>
+                            {% endfor %}
                         </ul>
                     </section>
                 </div>
