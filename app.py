@@ -39,6 +39,8 @@ def list():
     questions = sentence_search(question)
     total = get_total_questions()
     result_size = len(questions)
+    if result_size > 40:
+        questions = questions[0:40]
     return render_template('list.html', questions=questions, total=total, result_size=result_size)
 
 

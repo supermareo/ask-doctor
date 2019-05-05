@@ -52,7 +52,11 @@
         <form class="search-form clearfix" action="../ask" method="post" autocomplete="off">
             <input class="search-term required" type="text" name="question" placeholder="输入你的问题"/>
             <input class="search-btn" type="submit" value="问医生"/>
-            <div class="search-tag-line" style="color: lightcyan">共为您找到 {{ result_size }} 条相关问答</div>
+            <div class="search-tag-line" style="color: lightcyan">共为您找到 {{ result_size }} 条相关问答
+                {% if result_size>40 %}
+                    ,仅展示前40条
+                {% endif %}
+            </div>
         </form>
     </div>
 </div>
